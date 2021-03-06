@@ -7,12 +7,14 @@ const Home = () => {
     <div>
       <div className="columns">
         <div className="column is-one-quarter mx-4 mt-6 is-flex-direction-column">
-          <h1 className="mainTitle has-text-centered">WISHLIST</h1>
-          <h3 className="jobs has-text-centered">3 JOBS</h3>
-          <button className="button is-medium is-fullwidth">
+          <h1 className="mainTitle has-text-centered has-text-black is-size-3 has-text-weight-bold">
+            WISHLIST
+          </h1>
+          <h3 className="jobs has-text-centered is-size-5 has-text-dark">3 JOBS</h3>
+          <button className="button is-medium is-fullwidth my-3 shadow">
             <i class="fas fa-plus"></i>
           </button>
-          <section className="mt-3">
+          <section className="">
             {seeds.map((object, index) => (
               <div className="box has-background-info-dark">
                 <article className="media">
@@ -28,8 +30,9 @@ const Home = () => {
                     </div>
                   </div>
                   <div className="media-right">
-                      <button className="button"><i class="far fa-trash-alt"></i></button>
-
+                    <button className="button deleteButton">
+                      <i class="far fa-trash-alt"></i>
+                    </button>
                   </div>
                 </article>
               </div>
