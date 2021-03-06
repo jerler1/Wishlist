@@ -7,7 +7,7 @@ import 'bulma/css/bulma.css'
 function App() {
   return (
     <Router>
-      <main className="App has-background-link-light">
+      <main className="App">
         <Route exact path="/" component={Home} />
         <Route path="/home" component={Home} />
       </main>
