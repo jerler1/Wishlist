@@ -3,7 +3,7 @@ import "./Card.css";
 
 const Card = (props) => {
   return (
-    <div className="box has-background-info-dark">
+    <div className={`box ${props.color}`}>
       <article className="media">
         <div className="media-left">
           <figure className="image is-32x32">
