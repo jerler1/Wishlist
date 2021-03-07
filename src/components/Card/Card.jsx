@@ -25,7 +25,7 @@ const Card = (props) => {
         <div className="media-right">
           <button
             name={props.object.id}
-            onClick={props.settingDeleteModal}
+            onClick={props.toggleDeleteModal}
             className={`button deleteButton ${
               props.deleteButtonVisible ? "" : "is-hidden"
             }`}

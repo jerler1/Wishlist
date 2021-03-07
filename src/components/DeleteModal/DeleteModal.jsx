@@ -17,7 +17,7 @@ const DeleteModal = (props) => {
             <p className="my-2">Are you sure you want to delete this job?</p>
 
             <button onClick={props.deleteCard} className="button m-2 has-background-danger-dark has-text-white">Delete</button>
-            <button onClick={props.settingDeleteModal} className="button m-2 has-background-link has-text-white">
+            <button onClick={props.toggleDeleteModal} className="button m-2 has-background-link has-text-white">
               Cancel
             </button>
           </div>

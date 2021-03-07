@@ -59,7 +59,7 @@ const Home = () => {
     if (idToBeDeleted) {
       setLocalData(localData.filter((object) => object.id !== idToBeDeleted));
     }
-    settingDeleteModal();
+    toggleDeleteModal();
   };
 
   const handleDeleteButtonVisibility = (event) => {
@@ -72,10 +72,10 @@ const Home = () => {
   };
 
   // Combine these if I have time.
-  const settingModal = (event) => {
+  const toggleModal = (event) => {
     setModalActive(!modalActive);
   };
-  const settingDeleteModal = (event) => {
+  const toggleDeleteModal = (event) => {
     setIdToBeDeleted(event?.target?.name);
     setDeleteModalActive(!deleteModalActive);
   };
@@ -91,7 +91,7 @@ const Home = () => {
             {localData.length} JOBS
           </h3>
           <button
-            onClick={settingModal}
+            onClick={toggleModal}
             className="button is-medium is-fullwidth my-3 shadow"
           >
             <i className="fas fa-plus"></i>
@@ -103,7 +103,7 @@ const Home = () => {
                 handleDeleteButtonVisibility={handleDeleteButtonVisibility}
                 key={object.id}
                 object={object}
-                settingDeleteModal={settingDeleteModal}
+                toggleDeleteModal={toggleDeleteModal}
               />
             ))}
           </section>
@@ -112,11 +112,11 @@ const Home = () => {
           handleFormSubmit={handleFormSubmit}
           handleInputChange={handleInputChange}
           modalActive={modalActive}
-          settingModal={settingModal}
+          settingModal={toggleModal}
         />
         <DeleteModal
           deleteModalActive={deleteModalActive}
-          settingDeleteModal={settingDeleteModal}
+          toggleDeleteModal={toggleDeleteModal}
           deleteCard={deleteCard}
         />
       </div>
