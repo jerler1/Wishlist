@@ -2,16 +2,11 @@ import React, { useEffect, useState } from "react";
 import "./Home.css";
 import Card from "../../components/Card/Card";
 import JobModal from "../../components/JobModal/JobModal";
+import DeleteModal from "../../components/DeleteModal/DeleteModal";
 import seeds from "../../seed/seeds";
 
 const Home = () => {
-  const [localData, setLocalData] = useState([
-    {
-      company: "",
-      job: "",
-      thumbnail: "",
-    },
-  ]);
+  const [localData, setLocalData] = useState([]);
   const [tempLocalData, setTempLocalData] = useState({
     company: "",
     job: "",
@@ -19,6 +14,7 @@ const Home = () => {
   });
 
   const [modalActive, setModalActive] = useState(false);
+  const [deleteModalActive, setDeleteModalActive] = useState(false);
 
   useEffect(() => {
     const localRetrieval = JSON.parse(localStorage.getItem("wishlist"));
@@ -47,6 +43,9 @@ const Home = () => {
   const settingModal = (event) => {
     setModalActive(!modalActive);
   };
+  const settingDeleteModal = (event) => {
+    setDeleteModalActive(!deleteModalActive);
+  };
 
   return (
     <div>
@@ -66,7 +65,11 @@ const Home = () => {
           </button>
           <section>
             {localData.map((object, index) => (
-              <Card key={index} object={object} />
+              <Card
+                key={index}
+                object={object}
+                settingDeleteModal={settingDeleteModal}
+              />
             ))}
           </section>
         </div>
@@ -75,6 +78,10 @@ const Home = () => {
           handleInputChange={handleInputChange}
           modalActive={modalActive}
           settingModal={settingModal}
+        />
+        <DeleteModal
+          deleteModalActive={deleteModalActive}
+          settingDeleteModal={settingDeleteModal}
         />
       </div>
     </div>
