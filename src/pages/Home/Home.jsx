@@ -12,13 +12,11 @@ const Home = () => {
       thumbnail: "",
     },
   ]);
-  const [tempLocalData, setTempLocalData] = useState([
-    {
-      company: "",
-      job: "",
-      thumbnail: "",
-    },
-  ]);
+  const [tempLocalData, setTempLocalData] = useState({
+    company: "",
+    job: "",
+    thumbnail: "",
+  });
 
   const [modalActive, setModalActive] = useState(false);
 
@@ -36,7 +34,9 @@ const Home = () => {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    console.log(event.target.job);
+    setLocalData((localData) => [...localData, tempLocalData]);
+    console.log(localData);
+    setModalActive(!modalActive);
   };
 
   const handleInputChange = (event) => {

@@ -19,7 +19,7 @@ const JobModal = (props) => {
               <div className="control has-icons-right my-2">
                 <input
                   name="company"
-                  onChange={handleInputChange}
+                  onChange={props.handleInputChange}
                   className="input"
                   type="text"
                   placeholder="Company Name"
@@ -31,7 +31,7 @@ const JobModal = (props) => {
               <div className="control has-icons-right my-2">
                 <input
                   name="job"
-                  onChange={handleInputChange}
+                  onChange={props.handleInputChange}
                   className="input"
                   type="text"
                   placeholder="Position"
@@ -43,7 +43,7 @@ const JobModal = (props) => {
               <div className="control has-icons-right my-2">
                 <input
                   name="thumbnail"
-                  onChange={handleInputChange}
+                  onChange={props.handleInputChange}
                   className="input"
                   type="text"
                   placeholder="Image Link"
