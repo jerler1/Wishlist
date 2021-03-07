@@ -4,7 +4,7 @@ import Card from "../../components/Card/Card";
 import JobModal from "../../components/JobModal/JobModal";
 import DeleteModal from "../../components/DeleteModal/DeleteModal";
 import functions from "../../util/Functions";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 import seeds from "../../seed/seeds";
 const dayjs = require("dayjs");
 
@@ -22,6 +22,7 @@ const Home = () => {
   const [modalActive, setModalActive] = useState(false);
   const [deleteModalActive, setDeleteModalActive] = useState(false);
   const [deleteButtonVisible, setDeleteButtonVisible] = useState(false);
+  const [idToBeDeleted, setIdToBeDeleted] = useState("");
 
   useEffect(() => {
     let localRetrieval = JSON.parse(localStorage.getItem("wishlist"));
@@ -47,7 +48,6 @@ const Home = () => {
       id: uuidv4(),
     });
     setLocalData((localData) => [...localData, tempLocalData]);
-    console.log(tempLocalData);
     setModalActive(!modalActive);
     Array.from(document.querySelectorAll("input")).forEach(
       (input) => (input.value = "")
@@ -55,7 +55,11 @@ const Home = () => {
   };
 
   const deleteCard = (event) => {
-    console.log(event);
+    console.log(idToBeDeleted);
+    if (idToBeDeleted) {
+      setLocalData(localData.filter((object) => object.id !== idToBeDeleted));
+    }
+    settingDeleteModal();
   };
 
   const handleDeleteButtonVisibility = (event) => {
@@ -72,6 +76,7 @@ const Home = () => {
     setModalActive(!modalActive);
   };
   const settingDeleteModal = (event) => {
+    setIdToBeDeleted(event?.target?.name);
     setDeleteModalActive(!deleteModalActive);
   };
 

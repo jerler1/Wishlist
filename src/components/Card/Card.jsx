@@ -24,6 +24,7 @@ const Card = (props) => {
         </div>
         <div className="media-right">
           <button
+            name={props.object.id}
             onClick={props.settingDeleteModal}
             className={`button deleteButton ${
               props.deleteButtonVisible ? "" : "is-hidden"
@@ -32,7 +33,7 @@ const Card = (props) => {
             <i className="far fa-trash-alt"></i>
           </button>
         </div>
-        <div class="timeDate">
+        <div className="timeDate">
           <p className="has-text-white">{`added: ${dayjs().to(
             props.object.date
           )}`}</p>
