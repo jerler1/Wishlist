@@ -41,7 +41,7 @@ const Home = () => {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setFormValues({ ...formValues, [name]: value });
+    setTempLocalData({ ...tempLocalData, [name]: value });
   };
 
   const settingModal = (event) => {
