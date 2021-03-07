@@ -4,12 +4,14 @@ import Card from "../../components/Card/Card";
 import JobModal from "../../components/JobModal/JobModal";
 import DeleteModal from "../../components/DeleteModal/DeleteModal";
 import functions from "../../util/Functions";
+import { v4 as uuidv4 } from 'uuid';
 import seeds from "../../seed/seeds";
 const dayjs = require("dayjs");
 
 const Home = () => {
   const [localData, setLocalData] = useState([]);
   const [tempLocalData, setTempLocalData] = useState({
+    id: "",
     company: "",
     job: "",
     thumbnail: "",
@@ -42,6 +44,7 @@ const Home = () => {
       ...tempLocalData,
       date: date,
       color: functions.randomColor(),
+      id: uuidv4(),
     });
     setLocalData((localData) => [...localData, tempLocalData]);
     console.log(tempLocalData);
@@ -89,11 +92,11 @@ const Home = () => {
             <i className="fas fa-plus"></i>
           </button>
           <section>
-            {localData.map((object, index) => (
+            {localData.map((object) => (
               <Card
                 deleteButtonVisible={deleteButtonVisible}
                 handleDeleteButtonVisibility={handleDeleteButtonVisibility}
-                key={index}
+                key={object.id}
                 object={object}
                 settingDeleteModal={settingDeleteModal}
               />

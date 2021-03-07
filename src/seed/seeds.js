@@ -1,4 +1,5 @@
 import functions from "../util/Functions";
+import { v4 as uuidv4 } from 'uuid';
 const dayjs = require("dayjs");
 const date = dayjs();
 const seeds = [
@@ -8,6 +9,7 @@ const seeds = [
     thumbnail: require("./images/pathrise.png").default,
     date: date,
     color: functions.randomColor(),
+    id: uuidv4(),
   },
   {
     company: "Airbnb",
@@ -15,6 +17,7 @@ const seeds = [
     thumbnail: require("./images/airbnb.png").default,
     date: date,
     color: functions.randomColor(),
+    id: uuidv4(),
   },
   {
     company: "Google",
@@ -22,6 +25,7 @@ const seeds = [
     thumbnail: require("./images/google.png").default,
     date: date,
     color: functions.randomColor(),
+    id: uuidv4(),
   },
   {
     company: "Facebook",
@@ -29,6 +33,7 @@ const seeds = [
     thumbnail: require("./images/facebook.png").default,
     date: date,
     color: functions.randomColor(),
+    id: uuidv4(),
   },
 ];
 
