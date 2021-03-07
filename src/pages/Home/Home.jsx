@@ -1,5 +1,6 @@
 import React from "react";
 import "./Home.css";
+import Card from "../../components/Card/Card";
 import seeds from "../../seed/seeds";
 
 const Home = () => {
@@ -12,30 +13,11 @@ const Home = () => {
           </h1>
           <h3 className="jobs has-text-centered is-size-5 has-text-dark">3 JOBS</h3>
           <button className="button is-medium is-fullwidth my-3 shadow">
-            <i class="fas fa-plus"></i>
+            <i className="fas fa-plus"></i>
           </button>
           <section className="">
             {seeds.map((object, index) => (
-              <div className="box has-background-info-dark">
-                <article className="media">
-                  <div className="media-left">
-                    <figure className="image is-32x32">
-                      <img className="logo" src={object.thumbnail} alt="logo" />
-                    </figure>
-                  </div>
-                  <div className="media-content">
-                    <div className="content">
-                      <h4 className="has-text-white">{object.company}</h4>
-                      <h5 className="has-text-white">{object.jobTitle}</h5>
-                    </div>
-                  </div>
-                  <div className="media-right">
-                    <button className="button deleteButton">
-                      <i class="far fa-trash-alt"></i>
-                    </button>
-                  </div>
-                </article>
-              </div>
+                <Card key={index} object={object} />
             ))}
           </section>
         </div>
