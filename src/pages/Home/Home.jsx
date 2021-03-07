@@ -4,6 +4,7 @@ import Card from "../../components/Card/Card";
 import JobModal from "../../components/JobModal/JobModal";
 import DeleteModal from "../../components/DeleteModal/DeleteModal";
 import seeds from "../../seed/seeds";
+const dayjs = require("dayjs");
 
 const Home = () => {
   const [localData, setLocalData] = useState([]);
@@ -16,6 +17,7 @@ const Home = () => {
 
   const [modalActive, setModalActive] = useState(false);
   const [deleteModalActive, setDeleteModalActive] = useState(false);
+  const [deleteButtonVisible, setDeleteButtonVisible] = useState(false);
 
   useEffect(() => {
     let localRetrieval = JSON.parse(localStorage.getItem("wishlist"));
@@ -33,13 +35,22 @@ const Home = () => {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
+    const date = dayjs();
+    setTempLocalData({ ...tempLocalData, date: date });
     setLocalData((localData) => [...localData, tempLocalData]);
     console.log(localData);
     setModalActive(!modalActive);
+    Array.from(document.querySelectorAll("input")).forEach(
+      (input) => (input.value = "")
+    );
   };
 
   const deleteCard = (event) => {
     console.log(event);
+  };
+
+  const handleDeleteButtonVisibility = (event) => {
+    setDeleteButtonVisible(!deleteButtonVisible);
   };
 
   const handleInputChange = (event) => {
@@ -53,18 +64,6 @@ const Home = () => {
   };
   const settingDeleteModal = (event) => {
     setDeleteModalActive(!deleteModalActive);
-  };
-
-  const randomColor = () => {
-    const colors = [
-      "has-background-primary-dark",
-      "has-background-link-dark",
-      "has-background-success-dark",
-      "has-background-warning-dark",
-      "has-background-danger-dark",
-    ];
-    const randomValue = Math.floor(Math.random() * colors.length);
-    return colors[randomValue];
   };
 
   return (
@@ -86,6 +85,8 @@ const Home = () => {
           <section>
             {localData.map((object, index) => (
               <Card
+                deleteButtonVisible={deleteButtonVisible}
+                handleDeleteButtonVisibility={handleDeleteButtonVisibility}
                 color={randomColor()}
                 key={index}
                 object={object}

@@ -6,7 +6,10 @@ dayjs.extend(relativeTime);
 
 const Card = (props) => {
   return (
-    <div className={`box ${props.color} `}>
+    <div
+      className={`box ${props.color} `}
+      onClick={props.handleDeleteButtonVisibility}
+    >
       <article className="media cardPosition">
         <div className="media-left">
           <figure className="image is-32x32">
@@ -22,13 +25,17 @@ const Card = (props) => {
         <div className="media-right">
           <button
             onClick={props.settingDeleteModal}
-            className="button deleteButton"
+            className={`button deleteButton ${
+              props.deleteButtonVisible ? "" : "is-hidden"
+            }`}
           >
             <i className="far fa-trash-alt"></i>
           </button>
         </div>
         <div class="timeDate">
-          <p className="has-text-white">{`added: ${dayjs().to(props.object.date)}`}</p>
+          <p className="has-text-white">{`added: ${dayjs().to(
+            props.object.date
+          )}`}</p>
         </div>
       </article>
     </div>
