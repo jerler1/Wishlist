@@ -13,6 +13,10 @@ const Home = () => {
       : setLocalData(seeds);
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem("wishlist", JSON.stringify(localData));
+  }, [localData]);
+
   return (
     <div>
       <div className="columns">
