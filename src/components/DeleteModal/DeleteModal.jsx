@@ -6,25 +6,23 @@ const DeleteModal = (props) => {
     <>
       <div className={props.deleteModalActive ? "modal is-active" : "modal"}>
         <div className="modal-background"></div>
-        <div className="modal-content has-background-white p-6" id="deleteModal">
+        <div
+          className="modal-content has-background-white p-6"
+          id="deleteModal"
+        >
           <div className="container">
             <p className="has-text-centered is-size-2 has-text-weight-bold">
               Delete Job
             </p>
             <p className="my-2">Are you sure you want to delete this job?</p>
-            <footer className="modal-card-foot">
-              <button className="button">Delete</button>
-              <button onClick={props.settingDeleteModal}className="button">Cancel</button>
-            </footer>
+
+            <button onClick={props.deleteCard} className="button m-2 has-background-danger-dark has-text-white">Delete</button>
+            <button onClick={props.settingDeleteModal} className="button m-2 has-background-link has-text-white">
+              Cancel
+            </button>
           </div>
         </div>
       </div>
-      <button
-        name="job"
-        onClick={props.settingDeleteModal}
-        className="modal-close is-large"
-        aria-label="close"
-      ></button>
     </>
   );
 };

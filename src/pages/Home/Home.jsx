@@ -35,11 +35,14 @@ const Home = () => {
     setModalActive(!modalActive);
   };
 
+  const deleteCard = (event) => {console.log(event)};
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setTempLocalData({ ...tempLocalData, [name]: value });
   };
 
+  // Combine these if I have time.
   const settingModal = (event) => {
     setModalActive(!modalActive);
   };
@@ -82,6 +85,7 @@ const Home = () => {
         <DeleteModal
           deleteModalActive={deleteModalActive}
           settingDeleteModal={settingDeleteModal}
+          deleteCard={deleteCard}
         />
       </div>
     </div>
