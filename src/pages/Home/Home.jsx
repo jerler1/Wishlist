@@ -5,17 +5,23 @@ import seeds from "../../seed/seeds";
 
 const Home = () => {
   const [localData, setLocalData] = useState([]);
+  const [modalActive, setModalActive] = useState(false);
 
   useEffect(() => {
-    const localRetrieval = localStorage.getItem("wishlist");
-    localRetrieval
-      ? setLocalData(JSON.parse(localRetrieval))
+    const localRetrieval = JSON.parse(localStorage.getItem("wishlist"));
+
+    localRetrieval.length !== 0
+      ? setLocalData(localRetrieval)
       : setLocalData(seeds);
   }, []);
 
   useEffect(() => {
     localStorage.setItem("wishlist", JSON.stringify(localData));
   }, [localData]);
+
+  const settingModal = (event) => {
+    setModalActive(!modalActive);
+  };
 
   return (
     <div>
@@ -27,15 +33,23 @@ const Home = () => {
           <h3 className="jobs has-text-centered is-size-5 has-text-dark">
             {localData.length} JOBS
           </h3>
-          <button className="button is-medium is-fullwidth my-3 shadow">
+          <button
+            onClick={settingModal}
+            className="button is-medium is-fullwidth my-3 shadow"
+          >
             <i className="fas fa-plus"></i>
           </button>
-          <section className="">
+          <section>
             {localData.map((object, index) => (
               <Card key={index} object={object} />
             ))}
           </section>
         </div>
+      </div>
+      <div className={modalActive ? "modal is-active" : "modal"}>
+        <div className="modal-background"></div>
+        <div className="modal-content"></div>
+        <button className="modal-close is-large" aria-label="close"></button>
       </div>
     </div>
   );
