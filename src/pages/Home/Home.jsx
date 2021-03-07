@@ -3,7 +3,7 @@ import "./Home.css";
 import Card from "../../components/Card/Card";
 import JobModal from "../../components/JobModal/JobModal";
 import DeleteModal from "../../components/DeleteModal/DeleteModal";
-import { randomColor } from "../../util/Functions";
+import functions from "../../util/Functions";
 import seeds from "../../seed/seeds";
 const dayjs = require("dayjs");
 
@@ -14,7 +14,7 @@ const Home = () => {
     job: "",
     thumbnail: "",
     date: "",
-    color: ""
+    color: "",
   });
 
   const [modalActive, setModalActive] = useState(false);
@@ -38,9 +38,13 @@ const Home = () => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     const date = dayjs();
-    setTempLocalData({ ...tempLocalData, date: date });
+    setTempLocalData({
+      ...tempLocalData,
+      date: date,
+      color: functions.randomColor(),
+    });
     setLocalData((localData) => [...localData, tempLocalData]);
-    console.log(localData);
+    console.log(tempLocalData);
     setModalActive(!modalActive);
     Array.from(document.querySelectorAll("input")).forEach(
       (input) => (input.value = "")

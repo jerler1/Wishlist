@@ -7,7 +7,7 @@ dayjs.extend(relativeTime);
 const Card = (props) => {
   return (
     <div
-      className={`box ${props.color} `}
+      className={`box ${props.object.color}`}
       onClick={props.handleDeleteButtonVisibility}
     >
       <article className="media cardPosition">
