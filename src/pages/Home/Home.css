@@ -1,13 +1,3 @@
-.logo {
-    border-radius: 50%;
-}
-
-.deleteButton {
-    border-radius: 25% !important;
-    width: 20px;
-    height: auto;
-}
-
 .shadow {
     box-shadow: 2px 2px 5px !important;
 }

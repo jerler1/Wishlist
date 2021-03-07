@@ -1,0 +1,9 @@
+.logo {
+    border-radius: 50%;
+}
+
+.deleteButton {
+    border-radius: 25% !important;
+    width: 20px;
+    height: auto;
+}
