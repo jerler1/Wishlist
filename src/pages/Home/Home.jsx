@@ -21,7 +21,7 @@ const Home = () => {
             WISHLIST
           </h1>
           <h3 className="jobs has-text-centered is-size-5 has-text-dark">
-            3 JOBS
+            {localData.length} JOBS
           </h3>
           <button className="button is-medium is-fullwidth my-3 shadow">
             <i className="fas fa-plus"></i>
