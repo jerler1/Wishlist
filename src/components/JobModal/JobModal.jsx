@@ -42,7 +42,7 @@ const JobModal = (props) => {
               </div>
               <div className="control has-icons-right my-2">
                 <input
-                  name="image"
+                  name="thumbnail"
                   onChange={handleInputChange}
                   className="input"
                   type="text"
