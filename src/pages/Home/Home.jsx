@@ -3,6 +3,7 @@ import "./Home.css";
 import Card from "../../components/Card/Card";
 import JobModal from "../../components/JobModal/JobModal";
 import DeleteModal from "../../components/DeleteModal/DeleteModal";
+import { randomColor } from "../../util/Functions";
 import seeds from "../../seed/seeds";
 const dayjs = require("dayjs");
 
@@ -13,6 +14,7 @@ const Home = () => {
     job: "",
     thumbnail: "",
     date: "",
+    color: ""
   });
 
   const [modalActive, setModalActive] = useState(false);
@@ -87,7 +89,6 @@ const Home = () => {
               <Card
                 deleteButtonVisible={deleteButtonVisible}
                 handleDeleteButtonVisibility={handleDeleteButtonVisibility}
-                color={randomColor()}
                 key={index}
                 object={object}
                 settingDeleteModal={settingDeleteModal}
