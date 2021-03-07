@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Home.css";
 import Card from "../../components/Card/Card";
 import seeds from "../../seed/seeds";
 
 const Home = () => {
+  const [localData, setLocalData] = useState([]);
+
+  useEffect(() => {
+    const localRetrieval = localStorage.getItem("wishlist");
+    localRetrieval
+      ? setLocalData(JSON.parse(localRetrieval))
+      : setLocalData(seeds);
+  }, []);
+
   return (
     <div>
       <div className="columns">
@@ -11,13 +20,15 @@ const Home = () => {
           <h1 className="mainTitle has-text-centered has-text-black is-size-3 has-text-weight-bold">
             WISHLIST
           </h1>
-          <h3 className="jobs has-text-centered is-size-5 has-text-dark">3 JOBS</h3>
+          <h3 className="jobs has-text-centered is-size-5 has-text-dark">
+            3 JOBS
+          </h3>
           <button className="button is-medium is-fullwidth my-3 shadow">
             <i className="fas fa-plus"></i>
           </button>
           <section className="">
-            {seeds.map((object, index) => (
-                <Card key={index} object={object} />
+            {localData.map((object, index) => (
+              <Card key={index} object={object} />
             ))}
           </section>
         </div>
