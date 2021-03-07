@@ -1,0 +1,9 @@
+#jobModal {
+    width: 350px;
+    text-align: center;
+  }
+  
+  #jobSubmitButton {
+    background-color: blueviolet;
+    color: white;
+  }

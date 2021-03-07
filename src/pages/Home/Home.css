@@ -2,12 +2,4 @@
   box-shadow: 2px 2px 5px !important;
 }
 
-#jobModal {
-  width: 350px;
-  text-align: center;
-}
 
-#jobSubmitButton {
-  background-color: blueviolet;
-  color: white;
-}

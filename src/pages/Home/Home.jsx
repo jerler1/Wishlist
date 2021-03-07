@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Home.css";
 import Card from "../../components/Card/Card";
+import JobModal from "../../components/JobModal/JobModal";
 import seeds from "../../seed/seeds";
 
 const Home = () => {
@@ -45,64 +46,7 @@ const Home = () => {
             ))}
           </section>
         </div>
-      </div>
-      <div className={modalActive ? "modal is-active" : "modal"}>
-        <div className="modal-background"></div>
-        <div className="modal-content" id="jobModal">
-          <div className="container">
-            <form className="has-background-white p-6 ">
-              <p className="has-text-centered is-size-2 has-text-weight-bold">
-                Add a job
-              </p>
-              <hr />
-              <div className="control has-icons-right my-2">
-                <input
-                  name="company"
-                  className="input"
-                  type="text"
-                  placeholder="Company Name"
-                />
-                <span className="icon is-right">
-                  <i className="fas fa-search"></i>
-                </span>
-              </div>
-              <div className="control has-icons-right my-2">
-                <input
-                  name="job"
-                  className="input"
-                  type="text"
-                  placeholder="Position"
-                />
-                <span className="icon is-right">
-                  <i className="fas fa-briefcase"></i>
-                </span>
-              </div>
-              <div className="control has-icons-right my-2">
-                <input
-                  name="image"
-                  className="input"
-                  type="text"
-                  placeholder="Image Link"
-                />
-                <span className="icon is-right">
-                  <i className="fas fa-images"></i>
-                </span>
-              </div>
-              <button
-                type="submit"
-                id="jobSubmitButton"
-                className="button is-fullwidth mt-3"
-              >
-                Continue
-              </button>
-            </form>
-          </div>
-        </div>
-        <button
-          onClick={settingModal}
-          className="modal-close is-large"
-          aria-label="close"
-        ></button>
+        <JobModal modalActive={modalActive} settingModal={settingModal} />
       </div>
     </div>
   );
