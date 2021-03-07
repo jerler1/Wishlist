@@ -8,7 +8,10 @@ const JobModal = (props) => {
         <div className="modal-background"></div>
         <div className="modal-content" id="jobModal">
           <div className="container">
-            <form className="has-background-white p-6 ">
+            <form
+              onSubmit={props.handleFormSubmit}
+              className="has-background-white p-6 "
+            >
               <p className="has-text-centered is-size-2 has-text-weight-bold">
                 Add a job
               </p>
@@ -16,6 +19,7 @@ const JobModal = (props) => {
               <div className="control has-icons-right my-2">
                 <input
                   name="company"
+                  onChange={handleInputChange}
                   className="input"
                   type="text"
                   placeholder="Company Name"
@@ -27,6 +31,7 @@ const JobModal = (props) => {
               <div className="control has-icons-right my-2">
                 <input
                   name="job"
+                  onChange={handleInputChange}
                   className="input"
                   type="text"
                   placeholder="Position"
@@ -38,6 +43,7 @@ const JobModal = (props) => {
               <div className="control has-icons-right my-2">
                 <input
                   name="image"
+                  onChange={handleInputChange}
                   className="input"
                   type="text"
                   placeholder="Image Link"

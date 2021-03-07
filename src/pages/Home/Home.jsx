@@ -5,7 +5,21 @@ import JobModal from "../../components/JobModal/JobModal";
 import seeds from "../../seed/seeds";
 
 const Home = () => {
-  const [localData, setLocalData] = useState([]);
+  const [localData, setLocalData] = useState([
+    {
+      company: "",
+      job: "",
+      thumbnail: "",
+    },
+  ]);
+  const [tempLocalData, setTempLocalData] = useState([
+    {
+      company: "",
+      job: "",
+      thumbnail: "",
+    },
+  ]);
+
   const [modalActive, setModalActive] = useState(false);
 
   useEffect(() => {
@@ -19,6 +33,16 @@ const Home = () => {
   useEffect(() => {
     localStorage.setItem("wishlist", JSON.stringify(localData));
   }, [localData]);
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    console.log(event.target.job);
+  };
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormValues({ ...formValues, [name]: value });
+  };
 
   const settingModal = (event) => {
     setModalActive(!modalActive);
@@ -46,7 +70,12 @@ const Home = () => {
             ))}
           </section>
         </div>
-        <JobModal modalActive={modalActive} settingModal={settingModal} />
+        <JobModal
+          handleFormSubmit={handleFormSubmit}
+          handleInputChange={handleInputChange}
+          modalActive={modalActive}
+          settingModal={settingModal}
+        />
       </div>
     </div>
   );
