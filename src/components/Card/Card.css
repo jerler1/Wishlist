@@ -4,8 +4,16 @@
 
 .deleteButton {
   border-radius: 25% !important;
+  top: 0;
+  right: 0;
   width: 20px;
   height: auto;
 }
-
-
+.timeDate {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.cardPosition {
+    position: relative;
+}

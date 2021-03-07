@@ -1,10 +1,13 @@
+import dayjs from "dayjs";
 import React from "react";
 import "./Card.css";
+const relativeTime = require("dayjs/plugin/relativeTime");
+dayjs.extend(relativeTime);
 
 const Card = (props) => {
   return (
-    <div className={`box ${props.color}`}>
-      <article className="media">
+    <div className={`box ${props.color} `}>
+      <article className="media cardPosition">
         <div className="media-left">
           <figure className="image is-32x32">
             <img className="logo" src={props.object.thumbnail} alt="logo" />
@@ -17,9 +20,15 @@ const Card = (props) => {
           </div>
         </div>
         <div className="media-right">
-          <button onClick={props.settingDeleteModal} className="button deleteButton">
+          <button
+            onClick={props.settingDeleteModal}
+            className="button deleteButton"
+          >
             <i className="far fa-trash-alt"></i>
           </button>
+        </div>
+        <div class="timeDate">
+          <p className="has-text-white">{`added: ${dayjs().to(props.object.date)}`}</p>
         </div>
       </article>
     </div>

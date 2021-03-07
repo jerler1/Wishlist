@@ -11,14 +11,17 @@ const Home = () => {
     company: "",
     job: "",
     thumbnail: "",
+    date: "",
   });
 
   const [modalActive, setModalActive] = useState(false);
   const [deleteModalActive, setDeleteModalActive] = useState(false);
 
   useEffect(() => {
-    const localRetrieval = JSON.parse(localStorage.getItem("wishlist"));
-
+    let localRetrieval = JSON.parse(localStorage.getItem("wishlist"));
+    if (localRetrieval === null) {
+      localRetrieval = [];
+    }
     localRetrieval.length !== 0
       ? setLocalData(localRetrieval)
       : setLocalData(seeds);
@@ -60,7 +63,7 @@ const Home = () => {
       "has-background-warning-dark",
       "has-background-danger-dark",
     ];
-    const randomValue = Math.floor(Math.random() * colors.length)
+    const randomValue = Math.floor(Math.random() * colors.length);
     return colors[randomValue];
   };
 
