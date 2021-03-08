@@ -40,14 +40,15 @@ const Home = () => {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    const date = dayjs();
-    setTempLocalData({
-      ...tempLocalData,
-      date: date,
-      color: functions.randomColor(),
-      id: uuidv4(),
-    });
-    setLocalData((localData) => [...localData, tempLocalData]);
+    setLocalData((localData) => [
+      ...localData,
+      {
+        ...tempLocalData,
+        date: dayjs(),
+        color: functions.randomColor(),
+        id: uuidv4(),
+      },
+    ]);
     setModalActive(!modalActive);
     Array.from(document.querySelectorAll("input")).forEach(
       (input) => (input.value = "")
