@@ -77,7 +77,7 @@ const Home = () => {
     setModalActive(!modalActive);
   };
   const toggleDeleteModal = (event) => {
-    setIdToBeDeleted(event?.target?.name);
+    setIdToBeDeleted(event?.currentTarget?.name);
     setDeleteModalActive(!deleteModalActive);
   };
 
