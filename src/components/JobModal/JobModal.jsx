@@ -10,12 +10,16 @@ const JobModal = (props) => {
           <div className="container">
             <form
               onSubmit={props.handleFormSubmit}
-              className="has-background-white p-6 "
+              className="has-background-white p-6 is-relative"
             >
               <p className="has-text-centered is-size-2 has-text-weight-bold">
                 Add a job
               </p>
               <hr />
+              <button
+                className="delete is-medium exitButton"
+                onClick={props.toggleModal}
+              ></button>
               <div className="control has-icons-right my-2">
                 <input
                   name="company"
@@ -62,11 +66,6 @@ const JobModal = (props) => {
             </form>
           </div>
         </div>
-        <button
-          onClick={props.settingModal}
-          className="modal-close is-large"
-          aria-label="close"
-        ></button>
       </div>
     </>
   );
